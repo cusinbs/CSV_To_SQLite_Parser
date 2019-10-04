@@ -2,7 +2,6 @@ package MS3_Coding_Challenge;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
@@ -104,44 +103,6 @@ public class SQLiteBuilder {
 	}
 
 	private void insertBadRecordToCSV(ArrayList<String[]> badRecords) {
-//		try {
-//			FileWriter csvWriter = new FileWriter(dbName + "-bad.csv");
-//			csvWriter.append("A");
-//			csvWriter.append(",");
-//			csvWriter.append("B");
-//			csvWriter.append(",");
-//			csvWriter.append("C");
-//			csvWriter.append(",");
-//			csvWriter.append("D");
-//			csvWriter.append(",");
-//			csvWriter.append("E");
-//			csvWriter.append(",");
-//			csvWriter.append("F");
-//			csvWriter.append(",");
-//			csvWriter.append("G");
-//			csvWriter.append(",");
-//			csvWriter.append("H");
-//			csvWriter.append(",");
-//			csvWriter.append("I");
-//			csvWriter.append(",");
-//			csvWriter.append("J");
-//			csvWriter.append("\n");
-//
-//			for (int i = 0; i < badRecords.size(); i++) {
-//				for (int j = 0; j < 10; j++) {
-//					csvWriter.append(badRecords.get(i)[j]);
-//					if (j != 9) {
-//						csvWriter.append(",");
-//					}
-//				}
-//				csvWriter.append("\n");
-//			}
-//
-//			csvWriter.flush();
-//			csvWriter.close();
-//		} catch (IOException e) {
-//			System.out.println(e.getMessage());
-//		}
 		
 		String[] header = {"A", "B","C","D","E","F","G","H","I","J"};
 		badRecords.add(0, header);
@@ -167,7 +128,6 @@ public class SQLiteBuilder {
 		Statement stmt = null;
 
 		try {
-			//Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:" + dbName + ".db");
 			conn.setAutoCommit(false);
 			System.out.println("Opened database successfully");
